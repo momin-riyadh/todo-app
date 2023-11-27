@@ -1,9 +1,12 @@
+const asyncHandler = require('express-async-handler');
+
 const getTodos = (req, res) => {
     res.status(200).json({message: 'Get todos'})
 }
-const setTodo = (req, res) => {
-    res.status(200).json({message: 'Set todos'})
-}
+const setTodo = asyncHandler(async (req, res) => {
+    res.status(200).json({message: 'Get todos'})
+});
+
 const updateTodo = (req, res) => {
     res.status(200).json({message: `Update todos ${req.params.id}`})
 }
