@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
 
 // Login/Authenticate User
-const loginUser = (req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
 
     if (!email || !password) {
@@ -59,8 +59,7 @@ const loginUser = (req, res) => {
 
     //Check for user Email
     const user = await User.findOne({email});
-};
-
+});
 
 
 const getLoggedInUser = (req, res) => {
